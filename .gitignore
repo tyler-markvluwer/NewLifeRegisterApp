@@ -1,0 +1,4 @@
+src/coffee/key*
+node_modules/
+tmp/
+*.txt
