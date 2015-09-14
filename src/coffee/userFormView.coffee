@@ -1,4 +1,5 @@
 React = require('react')
+toastr = require('toastr')
 FormGroupView = require('./formGroupView')
 FormCheckboxView = require('./formCheckboxView')
 FormButton = require('./formButton')
@@ -13,9 +14,18 @@ userFormView = React.createClass
     #################################
     #       User Functions
     #################################
+    show_toast: (first, last) ->
+        full_name = first + ' ' + last
+        # toastr.options['positionClass'] = 'toast-bottom-right'
+        toastr.success('Thanks for submitting!', 'Hey ' + full_name + '!')
+
     submit: ->
         formSerializer = new FormSerializer()
-        formSerializer.serialize()
+        data = formSerializer.serialize()
+
+        @props.model.add_data(data)
+        @show_toast(data['first-name'], data['last-name'])
+        
 
     #################################
     #       React Functions

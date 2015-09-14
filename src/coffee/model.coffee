@@ -6,19 +6,9 @@ print = (args) ->
 
 class Model extends EventEmitter
     constructor: (@app_name, @app_desc) ->
-        @click_count = 0 # @ denotes instance variable
+        @users = []
 
-    increment_click_count: () ->
-        @click_count += 1
-        print "counter = " + @click_count        
-        @emit 'change'
-
-    # accessor functions are a good idea when using a "Model"
-    get_click_count: () ->
-        @click_count # automatically returns last line in method
-        # 'return @click_count' would do the exact same thing
-
-    print_click_count: () ->
-        print @click_count # no parenthese needed!
+    add_data: (data) ->
+        @users.push data
 
 module.exports = Model # Don't forget to export!!!

@@ -14,7 +14,7 @@ formCheckboxView = React.createClass
         button
             id: @props.id
             className: 'btn btn-default'
-            type: 'none'
+            type: 'button'
             onClick: @props.onClick
             @props.innerText
 
